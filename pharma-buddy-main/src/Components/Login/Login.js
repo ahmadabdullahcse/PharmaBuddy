@@ -224,7 +224,7 @@ const Login = () => {
                     />
                     <p className="text-center">
                       <small className="font-semibold">
-                        New to "PharmaBuddy"?
+                        Don't Have an account?
                         <br />
                         <Link className="text-primary" to="/signup">
                           Create new account

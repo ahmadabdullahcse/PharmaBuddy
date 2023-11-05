@@ -20,6 +20,7 @@ async function run() {
     const adminCollection = client.db("pharma-buddy").collection("admin");
     const userCollection = client.db("pharma-buddy").collection("user");
     const customerCollection = client.db("pharma-buddy").collection("customer");
+    const feedbackCollection = client.db("pharma-buddy").collection("feedback");
 
     // medicine post
     app.post("/medicine", async (req, res) => {
@@ -65,12 +66,32 @@ async function run() {
       }
     });
 
+    //feedback post
+    app.post("/feedback", async (req, res) => {
+      const feedback = req.body;
+      const result = await feedbackCollection.insertOne(feedback);
+      if (result.insertedCount === 1) {
+        res.send(result);
+        res.status(201).json({ message: "feedback added successfully" });
+      } else {
+        res.status(500).json({ message: "Failed to add feedback" });
+      }
+    });
+
     //medicine get
     app.get("/medicine", async (req, res) => {
       const query = {};
       const cursor = medicineCollection.find(query);
       const medicines = await cursor.toArray();
       res.send(medicines);
+    });
+
+    //feedback get
+    app.get("/feedback", async (req, res) => {
+      const query = {};
+      const cursor = feedbackCollection.find(query);
+      const feedbacks = await cursor.toArray();
+      res.send(feedbacks);
     });
 
     //admin get
