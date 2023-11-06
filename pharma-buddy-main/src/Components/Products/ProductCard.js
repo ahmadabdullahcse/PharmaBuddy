@@ -4,7 +4,7 @@ import { addToCart } from "../../redux/Slices/CartSlice";
 import { toast } from "react-toastify";
 
 const ProductCard = ({ product, setDetails }) => {
-  const { id, img, title, price, description } = product;
+  const { _id, img, title, price, description } = product;
   const [productDetail, setProductDetail] = useState([]);
 
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -29,6 +29,7 @@ const ProductCard = ({ product, setDetails }) => {
   };
   return (
     <div className="bg-neutral">
+      {/* {console.log(product,"Shovo")} */}
       <div className="border-2 text-black relative m-2 hover:scale-105 cursor-grab transition-all duration-300 ease-in-out">
         <div className="bg-accent">
           <div className="flex">
@@ -67,7 +68,7 @@ const ProductCard = ({ product, setDetails }) => {
           <div className="flex justify-end p-2">
             <button
               onClick={() => {
-                dispatch(addToCart({ id, img, title, price, qty: 1 }));
+                dispatch(addToCart({ _id, img, title, price, qty: 1 }));
                 notify();
               }}
               className="px-4 btn-sm mt-3 bg-primary text-white font-bold rounded-full hover:bg-opacity-80 transition duration-300"

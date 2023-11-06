@@ -35,6 +35,7 @@ const Cart = () => {
           >
             My Order
           </span>
+          {console.log(cartItems,"cart")}
           <div
             onClick={() => setActiveCart(!activeCart)}
             className="border-2 border-gray-500 text-gray-600 font-bold  p-1 text-xl rounded-md hover:text-red-500 hover:border-red-600 cursor-pointer"
@@ -46,28 +47,26 @@ const Cart = () => {
           {" "}
           <h3>Total Cost: ${totalPrice}</h3>{" "}
         </div>
-
-        {cartItems.length > 0 ? (
-          cartItems.map((product) => {
-            return (
-              <ItemCard
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                images={product.images}
-                qty={product.qty}
-              />
-            );
-          })
-        ) : (
-          <h2
-            style={{ fontFamily: "rockwell" }}
-            className="text-center mt-10 text-xl font-bold text-primary"
-          >
-            Your cart is empty
-          </h2>
-        )}
+                <div className="cart-items-container" style={{ maxHeight: "64vh", overflowY: "auto" }}>
+          {cartItems.length > 0 ? (
+            cartItems.map((product) => {
+              return (
+                <ItemCard
+                  key={product._id}
+                  _id={product._id}
+                  title={product.title}
+                  price={product.price}
+                  images={product.img}
+                  qty={product.qty}
+                />
+              );
+            })
+          ) : (
+            <h2 style={{ fontFamily: "rockwell" }} className="text-center mt-10 text-xl font-bold text-primary">
+              Your cart is empty
+            </h2>
+          )}
+        </div>
 
         <div className="absolute bottom-0 ">
           <h3 className="font-semibold text-gray-800">Items : {totalQty}</h3>

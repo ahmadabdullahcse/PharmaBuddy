@@ -40,6 +40,7 @@ const Products = () => {
 
   return (
     <div>
+      {console.log(products)}
       <h1
         className="text-3xl pt-12 text-center font-black text-primary px-7"
         style={{ fontFamily: "arial" }}
@@ -77,7 +78,7 @@ const Products = () => {
           })
           .map((product) => (
             <ProductCard
-              key={product.id}
+              key={product._id}
               product={product}
               setDetails={setDetails}
             ></ProductCard>
