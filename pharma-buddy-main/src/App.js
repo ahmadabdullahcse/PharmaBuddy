@@ -37,9 +37,9 @@ function App() {
         <Route
           path="/adminDashboard"
           element={
-            
-              <Dashboard />
           
+              <Dashboard />
+           
           }
         >
           <Route index element={<AdminDashboard />}></Route>
@@ -52,9 +52,9 @@ function App() {
         <Route
           path="/userDashboard"
           element={
-            <RequireAuth requiredRole="user">
+          
               <DashboardPg />
-            </RequireAuth>
+    
           }
         >
           <Route index element={<UserDashboard />}></Route>

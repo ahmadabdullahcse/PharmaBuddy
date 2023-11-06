@@ -60,7 +60,7 @@ const Navbar = () => {
           className="mx-3 font-extrabold normal-case text-base-100 hover:text-secondary text-md"
           to="/products"
         >
-          PRODUCTS
+          MEDICINES
         </Link>
       </div>
 
